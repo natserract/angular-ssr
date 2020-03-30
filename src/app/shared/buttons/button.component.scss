@@ -1,0 +1,14 @@
+
+@mixin buttonDisplay($opacity) {
+    @if $opacity {
+        opacity: .4;
+    }
+}
+
+button {
+    cursor: pointer;
+}
+
+.disabled {
+    @include buttonDisplay(true)
+}

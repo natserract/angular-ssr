@@ -1,3 +1,4 @@
+import { ContainerComponent } from './container';
 import { ButtonComponent } from './buttons';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
@@ -7,10 +8,12 @@ import { NgModule } from '@angular/core';
         CommonModule
     ],
     declarations: [
-        ButtonComponent
+        ButtonComponent,
+        ContainerComponent
     ],
     exports: [
-        ButtonComponent
+        ButtonComponent,
+        ContainerComponent
     ]
 })
 

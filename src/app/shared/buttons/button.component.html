@@ -1,2 +1,15 @@
 
-<button class="btn" (click)="toggle()">{{ isShow ? 'true': 'false' }}</button>
+<button class="btn" 
+    [ngClass]="{ 'disabled': isShow }" 
+    [ngStyle]="{ 'background': isShow ? 'red' : 'yellow' }"
+
+    [type]="type"
+    (click)="toggle()">
+        {{ !isShow ? 'benar': 'salah' }}
+</button>
+
+<div [ngSwitch]="isShow">
+    <p *ngSwitchCase="true">Ini Benar</p>
+    <p *ngSwitchCase="false">Ini Salah</p>
+    <p *ngSwitchDefault>Ini Default</p>
+</div>
