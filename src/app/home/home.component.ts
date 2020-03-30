@@ -3,11 +3,11 @@ import {Component, OnInit, EventEmitter, Output} from '@angular/core';
 
 @Component({
     selector: 'app-dashboard',
-    templateUrl: './dashboard.component.html',
-    styleUrls: ['./dashboard.component.scss']
+    templateUrl: './home.component.html',
+    styleUrls: ['./home.component.scss']
 })
 
-export class DashboardComponent {
+export class HomeComponent {
     constructor(){}
 
     onClick(): void {
