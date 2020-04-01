@@ -18,7 +18,12 @@ body, html {
 
 
 body {
-    background-color: #2d2d2d;
+    background: #fff;
+    color: #191b1f;
 }
 
 
+::selection {
+    background: #3d3d3d;
+    color: #fff;
+}
