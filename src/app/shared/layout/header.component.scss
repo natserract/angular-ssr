@@ -1,0 +1,17 @@
+header {
+  padding-top: 32px;
+  border-bottom: solid 1px #3d3d3d;
+  padding-bottom: 24px;
+}
+.s-navigation {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  &--item {
+    color: #babec2;
+    margin: 2px;
+    padding: 6px 11px;
+    text-decoration: none;
+  }
+}
