@@ -1,5 +1,6 @@
 
 import { Component } from '@angular/core';
+import { Menu } from '../../core/models';
 
 @Component({
     selector: 'app-layout-header',
@@ -10,5 +11,14 @@ import { Component } from '@angular/core';
 export class HeaderComponent  {
     constructor(){}
 
-    menus: Array<string> = ['Home', 'About'];
+    menus: Menu[] = [
+        {
+            name: 'Home',
+            path: '/'
+        },
+        {
+            name: 'About',
+            path: '/about'
+        }
+    ];
 }

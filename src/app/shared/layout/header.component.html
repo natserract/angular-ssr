@@ -5,14 +5,14 @@
                 <div class="s-navigation">
                     <ul class="s-navigation--left">
                         <li *ngFor="let menu of menus">
-                            <a href="/" class="s-navigation--item">{{ menu }}</a>
+                            <a [routerLink]="menu.path" class="s-navigation--item">{{ menu.name }}</a>
                         </li>
                     </ul>
                     <div class="s-navigation--center s-navigation-logo">
                         <h1>Black</h1>
                     </div>
                     <div class="s-navigation--right">
-                        <a href="/" class="s-navigation--item">Developer Hiring</a>
+                        <a href="/" class="s-navigation--item">Login</a>
                         <a href="/" class="s-navigation--item s-navigation--highlight">Open Github</a>
                     </div>
                 </div>
