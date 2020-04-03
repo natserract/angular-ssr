@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  api_url: 'https://api.nytimes.com',
+  api_key: 'SC4qw5eY9Ja5oyE8iyBTn6WJyDEEm0lm'
 };
 
 /*
@@ -14,3 +16,5 @@ export const environment = {
  * on performance if an error is thrown.
  */
 // import 'zone.js/dist/zone-error';  // Included with Angular CLI.
+// tslint:disable-next-line: eofline
+// /v2/everything?q=bitcoin&from=2020-03-02&sortBy=publishedAt&apiKey=036ba65e0c2e4e72a733e985051a8c3e

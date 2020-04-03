@@ -3,10 +3,13 @@ import { ContainerComponent } from './container';
 import { ButtonComponent } from './buttons';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { RouterModule } from '@angular/router';
+
 
 @NgModule({
     imports: [
-        CommonModule
+        CommonModule,
+        RouterModule
     ],
     declarations: [
         ButtonComponent,

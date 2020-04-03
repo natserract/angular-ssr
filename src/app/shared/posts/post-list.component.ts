@@ -1,5 +1,6 @@
 
 import { Component, OnInit } from '@angular/core';
+import { Post, ApiService, PostService, PostMultimedia } from '../../core';
 
 @Component({
     selector: 'app-post-lists',
@@ -8,9 +9,24 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class PostListComponent implements OnInit {
-    constructor(){}
+    constructor(
+        private postsService: PostService
+    ){}
+
+    posts: Post;
+    loading = false;
 
     ngOnInit(){
-        console.log('Post Lists Rendered');
+        this.loading = true;
+
+        return this.postsService.getAllPosts()
+        .subscribe(
+            data => {
+                this.posts = data;
+                this.loading = false;
+            },
+            err => console.log(err)
+        );
     }
+
 }

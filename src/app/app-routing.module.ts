@@ -5,7 +5,9 @@ import { HomeComponent, AboutComponent } from './modules';
 
 // Routes config
 const routes: Routes = [
-  { path: '',  component: HomeComponent },
+  { path: '',  component: HomeComponent, data: {
+    reuse: true
+  } },
   { path: 'about', component: AboutComponent}
 ];
 

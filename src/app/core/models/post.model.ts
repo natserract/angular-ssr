@@ -1,8 +1,14 @@
 
 export interface Post {
-    author: string;
+    source: string;
     title: string;
-    urlToImage: string;
-    publishedAt: string;
-    content: string;
+    published_date: string;
+    abstract: string;
+    multimedia: PostMultimedia[];
+}
+
+
+export interface PostMultimedia {
+    url: string;
+    format: string;
 }
