@@ -12,13 +12,8 @@ export class HeaderComponent  {
     constructor(){}
 
     menus: Menu[] = [
-        {
-            name: 'Home',
-            path: '/'
-        },
-        {
-            name: 'About',
-            path: '/about'
-        }
+        { name: 'Home', path: '/'},
+        { name: 'About', path: '/about'},
+        { name: 'Contact', path: '/contact' }
     ];
 }

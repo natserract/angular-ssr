@@ -1,4 +1,4 @@
-import { PostListComponent } from './posts';
+import { PostListComponent, ConfigUrl } from './posts';
 import { ContainerComponent } from './container';
 import { ButtonComponent } from './buttons';
 import { CommonModule } from '@angular/common';
@@ -14,7 +14,8 @@ import { RouterModule } from '@angular/router';
     declarations: [
         ButtonComponent,
         ContainerComponent,
-        PostListComponent
+        PostListComponent,
+        ConfigUrl
     ],
     exports: [
         ButtonComponent,

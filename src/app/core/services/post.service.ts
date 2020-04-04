@@ -11,9 +11,13 @@ export class PostService {
     ){}
 
     getAllPosts(): Observable<Post> {
-        return this.apiService.get('/svc/news/v3/content/all/all.json?api-key=')
+        return this.apiService.get('/svc/news/v3/content/all/all.json?limit=100&api-key=')
            .pipe(map(
                (data: { results: Post }) => data.results
            ));
+    }
+
+    getPost(url: string): Observable<Post> {
+        return this.apiService.get(`/svc/news/v3/content.json?url=${url}&api-key=`);
     }
 }
