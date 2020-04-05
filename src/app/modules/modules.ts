@@ -7,7 +7,7 @@ import { AboutComponent } from './about/about.component';
 import { PostComponent } from './post/post.component';
 
 import { PostRoutingModule } from './post/post-routing.module';
-import { PostResolver } from './post/post-resolver.service';
+import { PostResolverType01, PostResolverType02 } from './post/post-resolver.service';
 import { ExcerptPipe } from './post/post.pipe';
 
 @NgModule({
@@ -23,7 +23,8 @@ import { ExcerptPipe } from './post/post.pipe';
         ExcerptPipe
     ],
     providers: [
-        PostResolver
+        PostResolverType01,
+        PostResolverType02
     ]
 })
 

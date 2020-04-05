@@ -70,6 +70,13 @@ img {
     }
   }
 }
+
+.grid-post--cel:not(:first-child) {
+  img:empty {
+    background: rgb(198, 198, 198);
+    min-height: 217px;
+  }
+}
 .post-header {
   margin-top: 20px;
   color: #13150e;

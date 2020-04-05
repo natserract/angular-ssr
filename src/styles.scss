@@ -28,3 +28,10 @@ body {
     background: #3d3d3d;
     color: #fff;
 }
+
+img {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -webkit-user-drag: none;
+    -moz-user-drag: none;
+}

@@ -27,6 +27,6 @@ export class PostComponent implements OnInit{
             }
         );
 
-        console.log(`Url: ${this.route.snapshot.params.slug}`);
+        console.log(`Url: ${this.route.snapshot.params.years}`);
     }
 }

@@ -1,6 +1,6 @@
 
 import { Component, OnInit } from '@angular/core';
-import { Post, ApiService, PostService, PostMultimedia } from '../../core';
+import { Post, PostService } from '../../core';
 import { Router } from '@angular/router';
 @Component({
     selector: 'app-post-lists',
@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 export class PostListComponent implements OnInit {
     constructor(
         private postsService: PostService,
-        private router: Router,
+        private route: Router
     ){}
 
     posts: Post;
@@ -28,14 +28,5 @@ export class PostListComponent implements OnInit {
                 },
                 err => console.log(err)
             );
-    }
-
-    decodeString(str: string): string{
-        return str.toUpperCase();
-    }
-
-    handleClick(str: string) {
-        console.log(str);
-        return this.router.navigateByUrl(`/post${'/'}${str}`);
     }
 }

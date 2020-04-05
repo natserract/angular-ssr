@@ -8,7 +8,7 @@ export class ConfigUrlPipe implements PipeTransform {
         // tslint:disable
         const _regexOnlySlug = /^(https?:\/\/)*[a-z0-9-]+[a-z0-9-:]+(.[a-z-*]+.)+(\/[a-z0-9-]+)+(\/+)/;
         const _regexPath = /^[\a-z0-9-]+(https?:\/\/)*[a-z0-9-]+(.[a-z-*]+.com)./gm;
-        const regexFull = /^(https?:\/\/)*[a-z0-9-]+(.[a-z-*]+.com)./;
+        const regexFull = /https?:\/\/*[a-z0-9-]+(.[a-z-*]+.com)./gm;
 
         return str.replace(regexFull, '');
     }
