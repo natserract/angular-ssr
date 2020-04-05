@@ -5,7 +5,7 @@
 <div class="grid-post">
     <div *ngFor="let post of posts; index as postIndex; first as isFirst" class="grid-post--cell">
         <article  class="post type-post category-the-loop">
-            <a [routerLink]="post.slug_name | lowercase">
+            <a [routerLink]="['/post', post.url | configurl]">
                 <div class="post-img-thumb" *ngFor="let imageItem of post.multimedia; index as i;">
                     <div *ngIf="isFirst && i === 1" [ngStyle]="{ 'background': 'url(../../../assets/img/lores.jpg) no-repeat center', 'background-size': 'cover', 'height': '500px'   }"></div>
                     <img alt="post-img" *ngIf="!isFirst && i === 1" [src]="imageItem.url" [alt]="imageItem.caption" />
@@ -14,7 +14,7 @@
                 <div class="post-content-wrapper">
                     <header class="post-header">
                         <h2 class="post-headline">
-                            <a [routerLink]="['/post', post.url | configurl]" title="The Loop : March 2020">
+                            <a title="The Loop : March 2020">
                                 {{ post.title }}
                             </a>
                         </h2>

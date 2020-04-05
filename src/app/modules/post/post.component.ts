@@ -1,33 +1,32 @@
 
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Post } from '../../core/models';
-import { PostService } from '../../core/services';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 
 
 @Component({
     selector: 'app-post-detail',
-    templateUrl: './post.component.html'
+    templateUrl: './post.component.html',
+    styleUrls: ['./post.component.scss']
 })
 
 export class PostComponent implements OnInit{
     constructor(
-        private postDetail: PostService,
         private route: ActivatedRoute
     ){}
 
     post: Post;
-    loading = false;
 
     ngOnInit() {
-        this.loading = true;
-        // tslint:disable
-        
-        const regex = /^(https?:\/\/)*[a-z0-9-]+[a-z0-9-:]+(.[a-z-*]+.)/;
-        const regex2 = /^(https?:\/\/)*[a-z0-9-]+[a-z0-9-:]+(.[a-z-*]+.)+(\/[a-z0-9-]+)+(\/+)/;
-        const str = `http://localhost:4200/post/${this.route.snapshot.params.slug}`;
+        // Getting article data by slug
+        this.route.data.subscribe(
+            (data: { post: { results: Post[] }}) => {
+                data.post.results.forEach(item =>
+                    this.post = item
+                );
+            }
+        );
 
-        const t = '2020%2F04%2F03%2Fus%2Ftrump-inspector-general-intelligence-fired.html';
-        console.log(t.replace('/\/r/', '/'))
+        console.log(`Url: ${this.route.snapshot.params.slug}`);
     }
 }

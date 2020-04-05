@@ -4,6 +4,7 @@ export interface Post {
     title: string;
     published_date: string;
     abstract: string;
+    url: string;
     multimedia: PostMultimedia[];
 }
 

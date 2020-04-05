@@ -4,6 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { CommonModule } from '@angular/common';
 
 import { CoreModule } from './core';
 import { ModulesModule } from './modules';
@@ -20,7 +21,8 @@ import { CustomRouteReuseStrategy } from './route.strategy';
     SharedModule,
     ModulesModule,
     CoreModule,
-    HttpClientModule
+    HttpClientModule,
+    CommonModule
   ],
   declarations: [
     AppComponent,

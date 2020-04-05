@@ -1,2 +1,13 @@
-
-<h1>Post Detail</h1>
+<app-container>
+    <article>
+        <header class="article-header">
+            <div class="article-img-thumb" *ngFor="let imageItem of post.multimedia; index as i;">
+                <img alt="article-img" *ngIf="i == 2" [src]="imageItem.url" [alt]="imageItem.caption | excerpt" />
+            </div>
+            <h1 class="header-title">{{ post.title }}</h1>
+        </header>
+        <div class="article-content">
+            <p>{{ post.abstract }}</p>
+        </div>
+    </article>
+</app-container>

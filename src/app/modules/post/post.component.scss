@@ -1,0 +1,35 @@
+
+
+article {
+    max-width: 40%;
+    margin: 0 auto;
+    padding: 0px 0 70px;
+}
+
+.article-header {
+    margin-bottom: 30px;
+
+    .article-img-thumb {
+        text-align: center;
+        margin-bottom: 30px;
+
+        img {
+            width: 100%;
+        }
+    }
+
+    h1 {
+        font-size: 48px;
+    }
+}
+
+.article-content {
+    font-size: 17px;
+    line-height: 1.5em;
+}
+
+
+img:empty {
+    background: rgb(198, 198, 198);
+    min-height: 370px;
+}

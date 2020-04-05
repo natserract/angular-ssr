@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 
 import { HomeComponent, AboutComponent, PostComponent } from './modules';
 
@@ -11,7 +11,8 @@ const routes: Routes = [
       }
   },
   { path: 'about', component: AboutComponent},
-  { path: 'post/:slug', component: PostComponent}
+  { path: 'post',  loadChildren: './modules/modules#ModulesModule' }, // lazyload module
+  { path: '**', redirectTo: '' }
 ];
 
 @NgModule({

@@ -1,6 +1,7 @@
-import { PostListComponent, ConfigUrl } from './posts';
+import { PostListComponent, ConfigUrlPipe } from './posts';
 import { ContainerComponent } from './container';
 import { ButtonComponent } from './buttons';
+import { LoaderComponent } from './loader/loader.component';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
@@ -15,12 +16,14 @@ import { RouterModule } from '@angular/router';
         ButtonComponent,
         ContainerComponent,
         PostListComponent,
-        ConfigUrl
+        ConfigUrlPipe,
+        LoaderComponent
     ],
     exports: [
         ButtonComponent,
         ContainerComponent,
-        PostListComponent
+        PostListComponent,
+        LoaderComponent
     ]
 })
 
