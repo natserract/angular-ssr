@@ -1,7 +1,5 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule, PLATFORM_ID, APP_ID, Inject } from '@angular/core';
-
-import { isPlatformBrowser } from '@angular/common';
+import { BrowserModule, Title } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
 
 import { HttpClientModule } from '@angular/common/http';
 
@@ -32,10 +30,13 @@ import { CustomRouteReuseStrategy } from './route.strategy';
     HeaderComponent,
     FooterComponent
   ],
-  providers: [{
-    provide: RouteReuseStrategy,
-    useClass: CustomRouteReuseStrategy
-  }],
+  providers: [
+    Title,
+    {
+        provide: RouteReuseStrategy,
+        useClass: CustomRouteReuseStrategy
+    },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

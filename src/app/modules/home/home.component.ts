@@ -1,29 +1,19 @@
 
-import {Component} from '@angular/core';
-import { Meta, Title } from '@angular/platform-browser';
+import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 
 @Component({
     selector: 'app-dashboard',
     templateUrl: './home.component.html',
 })
 
-export class HomeComponent {
-    constructor(meta: Meta, title: Title){
-        title.setTitle('Home');
-        meta.addTags([
-            {
-                name: 'author',
-                content: 'Black Management '
-            },
-            {
-                name: 'keywords',
-                content: 'angular, blog-app'
-            },
-        ]);
-    }
+export class HomeComponent implements OnInit {
+    constructor(
+        private titleService: Title
+    ){}
 
-    onClick(): void {
-        console.log('hello');
+    ngOnInit() {
+        this.titleService.setTitle('Black Management - Breaking News, World News');
     }
 
 }

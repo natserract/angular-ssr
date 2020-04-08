@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
 import { PostComponent } from './post/post.component';
+import { ContactComponent } from './contact/contact.component';
 
 import { PostRoutingModule } from './post/post-routing.module';
 import { PostResolverType01, PostResolverType02 } from './post/post-resolver.service';
@@ -20,7 +21,8 @@ import { ExcerptPipe } from './post/post.pipe';
         HomeComponent,
         AboutComponent,
         PostComponent,
-        ExcerptPipe
+        ExcerptPipe,
+        ContactComponent
     ],
     providers: [
         PostResolverType01,

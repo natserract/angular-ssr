@@ -1,5 +1,6 @@
 
 import { Component } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 
 @Component({
     selector: 'app-about',
@@ -8,5 +9,7 @@ import { Component } from '@angular/core';
 })
 
 export class AboutComponent {
-    constructor(){}
+    constructor( titleService: Title){
+        titleService.setTitle('About | Black Management');
+    }
 }
