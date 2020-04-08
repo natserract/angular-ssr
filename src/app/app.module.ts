@@ -1,5 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, PLATFORM_ID, APP_ID, Inject } from '@angular/core';
+
+import { isPlatformBrowser } from '@angular/common';
+
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -16,7 +19,7 @@ import { CustomRouteReuseStrategy } from './route.strategy';
 
 @NgModule({
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'angular-app' }),
     AppRoutingModule,
     SharedModule,
     ModulesModule,
@@ -35,4 +38,4 @@ import { CustomRouteReuseStrategy } from './route.strategy';
   }],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

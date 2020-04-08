@@ -1,5 +1,6 @@
 
 import {Component} from '@angular/core';
+import { Meta, Title } from '@angular/platform-browser';
 
 @Component({
     selector: 'app-dashboard',
@@ -7,7 +8,19 @@ import {Component} from '@angular/core';
 })
 
 export class HomeComponent {
-    constructor(){}
+    constructor(meta: Meta, title: Title){
+        title.setTitle('Home');
+        meta.addTags([
+            {
+                name: 'author',
+                content: 'Black Management '
+            },
+            {
+                name: 'keywords',
+                content: 'angular, blog-app'
+            },
+        ]);
+    }
 
     onClick(): void {
         console.log('hello');

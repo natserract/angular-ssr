@@ -17,14 +17,13 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/angular-app",
+            "outputPath": "dist/angular-app/browser",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "aot": true,
             "assets": [
-              "src/favicon.ico",
               "src/assets"
             ],
             "styles": [
@@ -45,6 +44,7 @@
               "sourceMap": false,
               "extractCss": true,
               "namedChunks": false,
+              "aot": true,
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
@@ -69,8 +69,14 @@
             "browserTarget": "angular-app:build"
           },
           "configurations": {
-            "production": {
-              "browserTarget": "angular-app:build:production"
+            "prod": {
+              "browserTarget": "angular-ssr-example:build:prod"
+            },
+            "cert": {
+              "browserTarget": "angular-ssr-example:build:cert"
+            },
+            "dev": {
+              "browserTarget": "angular-ssr-example:build:dev"
             }
           }
         },
@@ -121,8 +127,59 @@
               "devServerTarget": "angular-app:serve:production"
             }
           }
+        },
+        "server": {
+          "builder": "@angular-devkit/build-angular:server",
+          "options": {
+            "outputPath": "dist/angular-app/server",
+            "main": "server.ts",
+            "tsConfig": "tsconfig.server.json"
+          },
+          "configurations": {
+            "production": {
+              "outputHashing": "media",
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ],
+              "sourceMap": false,
+              "optimization": true
+            }
+          }
+        },
+        "serve-ssr": {
+          "builder": "@nguniversal/builders:ssr-dev-server",
+          "options": {
+            "browserTarget": "angular-app:build",
+            "serverTarget": "angular-app:server"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "angular-app:build:production",
+              "serverTarget": "angular-app:server:production"
+            }
+          }
+        },
+        "prerender": {
+          "builder": "@nguniversal/builders:prerender",
+          "options": {
+            "browserTarget": "angular-app:build:production",
+            "serverTarget": "angular-app:server:production",
+            "routes": [
+              "/"
+            ]
+          },
+          "configurations": {
+            "production": {}
+          }
         }
       }
-    }},
-  "defaultProject": "angular-app"
+    }
+  },
+  "defaultProject": "angular-app",
+  "cli": {
+    "analytics": "d696f5ed-cb6e-4331-afab-117e90209ec9"
+  }
 }
