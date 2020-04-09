@@ -1,13 +1,13 @@
 
 .contact-section {
-    padding: 50px 0 50px;
+    padding: 50px 0 90px;
     max-width: 50%;
     margin: 0 auto;
 }
 
 form { 
     width: 100%;
-    flex-basis: 50%
+    flex-basis: 40%
 }
 
 .form-wrapper {
@@ -62,6 +62,13 @@ form {
             background: #fff;
             border: solid 1px #000;
             color: #000000;
+        }
+
+        &[disabled] {
+            opacity: .2;
+            cursor: default;
+            color: #fff !important;
+            background: #000 !important;
         }
     }
 }

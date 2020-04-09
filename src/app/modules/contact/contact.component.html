@@ -1,30 +1,31 @@
 <app-container>
     <div class="contact-section">
-        <form class="contact-form">
+        <form [formGroup]="forms" (ngSubmit)="submitForm()" class="contact-form" appContactFormDirective>
             <div class="form-wrapper">
                 <div class="form-group">
                     <label>Name</label>
-                    <input type="text" name="name" autofocus required />
+                    <input [ngStyle]="{ 'border-bottom-color': forms.get('name').errors && forms.get('name').touched ? 'red': '#000'}" type="text" name="name" required maxlength formControlName="name" autofocus/>
                     <div id="edit-name--description" class="description">
                         Enter your name.
                     </div>
                 </div>
                 <div class="form-group">
                     <label>Email</label>
-                    <input type="text" name="name" autofocus required />
+                    <input [ngStyle]="{ 'border-bottom-color': forms.get('email').errors && forms.get('email').touched ? 'red': '#000'}" type="email" name="email" required  formControlName="email"/>
                     <div id="edit-name--description" class="description">
                         Enter your email.
                     </div>
                 </div>
                 <div class="form-group">
                     <label>Message</label>
-                    <textarea name="message" autocomplete autofocus required></textarea>
+                    <textarea [ngStyle]="{ 'border-bottom-color': forms.get('message').errors && forms.get('message').touched ? 'red': '#000'}" name="message" required autocomplete="off" formControlName="message"></textarea>
                     <div id="edit-name--description" class="description">
                         Enter your message.
                     </div>
                 </div>
-                <input type="submit" name="submit" value="Submit" class="form-submit" />
+                <input [disabled]="forms.invalid" type="submit" name="submit" value="Submit" class="form-submit" />
             </div>
         </form>
+
     </div>
 </app-container>

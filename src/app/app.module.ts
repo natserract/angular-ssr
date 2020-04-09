@@ -23,7 +23,7 @@ import { CustomRouteReuseStrategy } from './route.strategy';
     ModulesModule,
     CoreModule,
     HttpClientModule,
-    CommonModule
+    CommonModule,
   ],
   declarations: [
     AppComponent,
