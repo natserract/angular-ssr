@@ -1,6 +1,6 @@
 <app-container>
     <div class="contact-section">
-        <form [formGroup]="forms" (ngSubmit)="submitForm()" class="contact-form" appContactFormDirective>
+        <form [formGroup]="forms" (ngSubmit)="submitForm()" class="contact-form" appValidateDirective="true">
             <div class="form-wrapper">
                 <div class="form-group">
                     <label>Name</label>

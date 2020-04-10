@@ -3,9 +3,9 @@ import { Validators } from '@angular/forms';
 import { ContactComponent } from './contact.component';
 
 @Directive({
-    selector: '[appContactFormDirective]',
+    selector: '[appValidateDirective]',
 })
-export class ContactFormDirective {
+export class ValidateFormDirective {
     constructor(
         host: ContactComponent
     ) {
@@ -25,7 +25,11 @@ export class ContactFormDirective {
         ]);
     }
 
-    @Input() appContactFormDirective: boolean;
+    condition: boolean;
+
+    @Input() set appContactFormDirective(condition: boolean){
+        this.condition = condition;
+    }
 
     @HostListener('click', ['$event.target']) onClick() {
         console.log('Works');

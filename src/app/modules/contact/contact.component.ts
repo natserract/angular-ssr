@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { LocalStorageService } from '../../core/services';
 
 @Component({
     selector: 'app-contact',
@@ -13,8 +14,9 @@ export class ContactComponent implements OnInit {
 
     constructor(
         private titleService: Title,
-        private formBuilder: FormBuilder
-    ){
+        private formBuilder: FormBuilder,
+        private localStorageService: LocalStorageService
+    ) {
 
         this.forms = this.formBuilder.group({
             name: '',
@@ -28,6 +30,15 @@ export class ContactComponent implements OnInit {
     }
 
     submitForm() {
-        console.log('Submitted');
+        console.log('Submitted. Check your data on local storage');
+        this.localStorageService.setItem('formData', {
+            formData: {
+                name: this.forms.get('name').value,
+                email: this.forms.get('email').value,
+                message: this.forms.get('message').value
+            }
+        });
+
+        this.forms.reset();
     }
 }

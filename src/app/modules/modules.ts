@@ -7,7 +7,7 @@ import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
 import { PostComponent } from './post/post.component';
 import { ContactComponent } from './contact/contact.component';
-import { ContactFormDirective } from './contact/contact.directive';
+import { ValidateFormDirective } from './contact/contact.directive';
 
 import { PostRoutingModule } from './post/post-routing.module';
 import { PostResolverType01, PostResolverType02 } from './post/post-resolver.service';
@@ -27,7 +27,7 @@ import { ExcerptPipe } from './post/post.pipe';
         PostComponent,
         ExcerptPipe,
         ContactComponent,
-        ContactFormDirective
+        ValidateFormDirective
     ],
     schemas: [
         NO_ERRORS_SCHEMA

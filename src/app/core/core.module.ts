@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { PostService, ApiService } from './services';
+import { PostService, ApiService, LocalStorageService } from './services';
 
 @NgModule({
     imports: [
@@ -8,7 +8,8 @@ import { PostService, ApiService } from './services';
     ],
     providers: [
         ApiService,
-        PostService
+        PostService,
+        LocalStorageService
     ],
     declarations: []
 })
