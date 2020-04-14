@@ -1,0 +1,49 @@
+
+
+
+input {
+    width: 100%;
+    box-sizing: border-box;
+    outline: none;
+    box-shadow: none;
+    border: none;
+    border-bottom: solid 2px #000;
+    height: 64px;
+    line-height: 64px;
+    color: #000;
+    font-size: 24px;
+    margin-bottom: 8px;
+    text-align: center;
+
+    &[disabled] {
+        opacity: .4;
+    }
+}
+     
+
+.search-block {
+    min-height: 500px;
+}
+
+form {
+    max-width: 40%;
+    margin: 0 auto 25px;
+}
+ul {
+    li {
+        margin-bottom: 10px;
+        
+        a {
+            display: block;
+            text-decoration: none !important;
+            color: #000;
+            font-size: 30px;
+            text-align: center;
+
+            &:hover,
+            &:focus {
+                text-decoration: underline !important;
+            }
+        }
+    }
+}

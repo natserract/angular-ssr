@@ -23,7 +23,8 @@ import { RouterModule } from '@angular/router';
         ButtonComponent,
         ContainerComponent,
         PostListComponent,
-        LoaderComponent
+        LoaderComponent,
+        ConfigUrlPipe
     ]
 })
 
