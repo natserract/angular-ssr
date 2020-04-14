@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PostService, ApiService, LocalStorageService } from './services';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpErrorInterceptor } from './interceptors';
 
 @NgModule({
     imports: [
@@ -9,7 +11,11 @@ import { PostService, ApiService, LocalStorageService } from './services';
     providers: [
         ApiService,
         PostService,
-        LocalStorageService
+        LocalStorageService, {
+            provide: HTTP_INTERCEPTORS,
+            useClass: HttpErrorInterceptor,
+            multi: true
+        }
     ],
     declarations: []
 })
