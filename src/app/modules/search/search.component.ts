@@ -12,7 +12,7 @@ import { Title } from '@angular/platform-browser';
 export class SearchComponent implements OnInit{
     constructor(
         private post: PostService,
-        private metaTitleService: Title
+        metaTitleService: Title
     ) {
         metaTitleService.setTitle('Search | Black Management');
     }
