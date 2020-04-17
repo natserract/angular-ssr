@@ -2,9 +2,19 @@
 import { createSelector } from '@ngrx/store';
 import * as Types from '../types';
 
-export const SelectCountState = (State: Types.RootReducerTypes) => State.CountState;
+const SelectCountState = (State: Types.AppStateTypes) => State.countState;
 
-export const Increment = createSelector(
+export const IncrementSelector = createSelector(
     SelectCountState,
-    (State: Types.CountState) => State.count
+    (State: Types.CountStateTypes) => State.count
+);
+
+export const DecrementSelector = createSelector(
+    SelectCountState,
+    (State: Types.CountStateTypes) => State.count
+);
+
+export const SendPayloadSelector = createSelector(
+    SelectCountState,
+    (State: Types.CountStateTypes) => State.message
 );

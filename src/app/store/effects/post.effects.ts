@@ -1,35 +1,33 @@
 import { Injectable } from '@angular/core';
-import { Effect, ofType, createEffect, Actions } from '@ngrx/effects';
-import { Store, select } from '@ngrx/store';
-import { of } from 'rxjs';
-import { switchMap, map, withLatestFrom, mergeMap, tap } from 'rxjs/operators';
+import { Effect, ofType, createEffect, Actions, } from '@ngrx/effects';
+import { map, mergeMap, catchError, concatMap, switchMap, subscribeOn } from 'rxjs/operators';
 
-import { Post, PostState, PostActionType } from '../types';
-// import {
-//     FetchError,
-//     FetchRequest,
-//     FetchSuccess,
-// } from '../actions';
+import * as Action from '../actions';
+import { PostService } from '../../core/services';
+import { FetchSuccess } from '../actions';
+import { Store } from '@ngrx/store';
+import { HttpErrorResponse } from '@angular/common/http';
+import { throwError, of, Observable } from 'rxjs';
 
-// import { PostService } from '../../core/services';
+@Injectable()
 
-// @Injectable()
-// export class PostEffects {
-//     constructor(
-//         private postService: PostService,
-//         private actions: Actions,
-//     ){}
+export class PostEffects {
+    constructor(
+        private postService: PostService,
+        private actions$: Actions,
+    ) { }
 
-//     @Effect()
-//     getPosts$ = createEffect(() => this.actions.pipe(
-//         ofType<FetchSuccess>(PostActionType.FETCH_SUCCESS),
-//         mergeMap(() => this.postService.getAllPosts()
-//             .pipe(
-//                 map(posts => ({
-//                     type: PostActionType.FETCH_SUCCESS,
-//                     payload: posts
-//                 })),
-//             )
-//         )
-//     ));
-// }
+    @Effect()
+    getPosts$ = createEffect(() => this.actions$.pipe(
+        ofType<Action.FetchSuccess>(Action.SelectPostAction.FETCH_SUCCESS),
+        mergeMap(() => this.postService.getAllPosts()
+            .pipe(
+                map(data => {
+                    return (new FetchSuccess({
+                        posts: data
+                    }));
+                }),
+            )
+        )
+    ));
+}

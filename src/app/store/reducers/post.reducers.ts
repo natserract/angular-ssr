@@ -2,14 +2,14 @@ import { ActionReducer } from '@ngrx/store';
 import * as Type from '../types';
 import * as Action from '../actions';
 
-export const initialState: Type.PostState = {
+export const initialState: Type.PostStateTypes = {
     posts: [],
     pending: false,
     error: null
 };
 
-export const PostReducer: ActionReducer<Type.PostState, Action.PostActions> =
-    (state: Type.PostState = initialState, action: Action.PostActions): Type.PostState => {
+export const PostReducer: ActionReducer<Type.PostStateTypes, Action.PostActions> =
+    (state: Type.PostStateTypes = initialState, action: Action.PostActions): Type.PostStateTypes => {
         switch (action.type) {
             case Action.SelectPostAction.FETCH_REQUEST: {
                 return {

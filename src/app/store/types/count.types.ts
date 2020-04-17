@@ -1,4 +1,5 @@
 
-export interface CountState {
+export interface CountStateTypes {
     count: number;
+    message: string;
 }

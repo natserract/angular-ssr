@@ -5,7 +5,7 @@
  * Just for global state
 */
 
-export interface PostState {
+export interface PostStateTypes {
     posts: Array<Post>;
     pending: boolean;
     error: string | null;

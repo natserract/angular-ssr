@@ -21,7 +21,7 @@ export class FetchRequest implements Action {
 export class FetchSuccess implements Action {
     readonly type = SelectPostAction.FETCH_SUCCESS;
     constructor(public payload: {
-        posts: Types.Post[]
+        posts: any
     }){}
 }
 

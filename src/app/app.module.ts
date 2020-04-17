@@ -1,8 +1,6 @@
 import { BrowserModule, Title } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-// ngrx part
-import { StoreModule } from '@ngrx/store';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,8 +11,7 @@ import { SharedModule } from './shared';
 import { HeaderComponent, FooterComponent } from './shared/layout';
 import { RouteReuseStrategy } from '@angular/router';
 import { CustomRouteReuseStrategy } from './route.strategy';
-import { EffectsModule } from '@ngrx/effects';
-import { RootReducer } from './store/reducers/';
+import { AppStoreModule } from './store/store.module';
 
 @NgModule({
   imports: [
@@ -25,8 +22,7 @@ import { RootReducer } from './store/reducers/';
     CoreModule,
     HttpClientModule,
     CommonModule,
-    StoreModule.forRoot(RootReducer)
-    // EffectsModule.forRoot([ Store.PostEffects ])
+    AppStoreModule,
   ],
   declarations: [
     AppComponent,

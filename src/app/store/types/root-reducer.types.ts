@@ -1,6 +1,8 @@
 
-import { CountState } from './count.types';
+import { CountStateTypes } from './count.types';
+import { PostStateTypes } from './post.types';
 
-export interface RootReducerTypes {
-    CountState: CountState;
+export interface AppStateTypes {
+    countState: CountStateTypes;
+    postState: PostStateTypes;
 }

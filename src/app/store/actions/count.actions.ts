@@ -8,11 +8,25 @@ import { Action } from '@ngrx/store';
 */
 
 export enum SelectCountAction {
-    INCREMENT = '[Count] INCREMENT',
+    INCREMENT = '@@count increment',
+    DECREMENT = '@@count decrement',
+    COUNTSENDPAYLOAD = '@@count sendpayload'
 }
 
-export class Increment implements Action {
+export class IncrementAction implements Action {
     readonly type = SelectCountAction.INCREMENT;
 }
+export class DecrementAction implements Action {
+    readonly type = SelectCountAction.DECREMENT;
+}
 
-export type CountActions = Increment;
+export class SendPayloadAction implements Action {
+    readonly type = SelectCountAction.COUNTSENDPAYLOAD;
+    constructor(
+        public payload: {
+            message: string
+        }
+    ){}
+}
+
+export type CountActions = IncrementAction | DecrementAction | SendPayloadAction    ;
