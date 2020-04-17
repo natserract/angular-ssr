@@ -1,6 +1,8 @@
-import { combineReducers } from '@ngrx/store';
-import { PostReducer } from './post.reducers';
+import { combineReducers, ActionReducerMap } from '@ngrx/store';
+import { CountReducer } from './count.reducers';
+import * as Types from '../types';
 
-export const RootReducer  = combineReducers({
-    posts: PostReducer
-});
+// Combine all reducers
+export const RootReducer: ActionReducerMap<Types.RootReducerTypes> = {
+    CountState: CountReducer
+};

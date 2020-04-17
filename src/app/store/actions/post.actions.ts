@@ -1,7 +1,6 @@
 
 import { Action } from '@ngrx/store';
-import { Post } from 'src/app/core';
-import { PostActionType } from '../types';
+import * as Types from '../types';
 
 /*
  * For alternative you can use
@@ -9,19 +8,25 @@ import { PostActionType } from '../types';
  * but currently we using class for implements the action
 */
 
+export enum SelectPostAction {
+    FETCH_REQUEST = '[Post] FETCH_REQUEST',
+    FETCH_SUCCESS = '[Post] FETCH_SUCCESS',
+    FETCH_ERROR = '[Post] FETCH_ERROR'
+}
+
 export class FetchRequest implements Action {
-    readonly type = PostActionType.FETCH_REQUEST;
+    readonly type = SelectPostAction.FETCH_REQUEST;
 }
 
 export class FetchSuccess implements Action {
-    readonly type = PostActionType.FETCH_SUCCESS;
+    readonly type = SelectPostAction.FETCH_SUCCESS;
     constructor(public payload: {
-        posts: Post[]
+        posts: Types.Post[]
     }){}
 }
 
 export class FetchError implements Action {
-    readonly type = PostActionType.FETCH_ERROR;
+    readonly type = SelectPostAction.FETCH_ERROR;
     constructor(public payload: {
         message: string
     }){}

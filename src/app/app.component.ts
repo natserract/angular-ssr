@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, Event, NavigationStart, NavigationEnd } from '@angular/router';
 import { Store, select } from '@ngrx/store';
-import { RootReducerTypes, Post } from './store/types';
-import { getAllPosts } from './store/selectors';
-import { FetchSuccess } from './store/actions';
-import { map } from 'rxjs/operators';
+
+import * as Selector from './store/selectors';
+import * as Dispatch from './store/actions';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -15,32 +14,30 @@ import { Observable } from 'rxjs';
 export class AppComponent implements OnInit{
   constructor(
     private router: Router,
-    private store: Store<RootReducerTypes>,
+    private store: Store<any>,
   ) {
-    this.posts$ = store.pipe(select(getAllPosts));
+    this.count$ = this.store.pipe(
+      select(Selector.Increment)
+    );
   }
 
-  title = 'angular-app';
-  isShowingRouteLoadIndicator: boolean;
-  posts$: Observable<Post[]>;
+  title$ = 'angular-app';
+  isShowingRouteLoadIndicator$: boolean;
+  count$: Observable<number>;
 
   ngOnInit(){
-    this.store.dispatch(new FetchSuccess({
-      posts: null
-    }));
-
-    this.posts$.subscribe(
-      data => console.log('DATA:' + data)
-    );
-
     this.router.events.subscribe(
       (event: Event): boolean => {
         if (event instanceof NavigationStart) {
-            return  this.isShowingRouteLoadIndicator = true;
+            return  this.isShowingRouteLoadIndicator$ = true;
         } else if (event instanceof NavigationEnd) {
-            return this.isShowingRouteLoadIndicator = false;
+            return this.isShowingRouteLoadIndicator$ = false;
         }
       }
     );
+  }
+
+  increment() {
+    this.store.dispatch(new Dispatch.Increment());
   }
 }
