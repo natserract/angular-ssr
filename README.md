@@ -1,27 +1,31 @@
-# AngularApp
+# Ngoprek Angular 🔥
+Seorang **front-end dev** yang sedang bermigrasi dari **react ke angular**, berusaha memahami berbagai konsep jargonnya, yang cukup woah. Mungkin saya akan menyukai kedua tools ini (React, Angular). Didalam code repository ini, banyak belajar konsep-konsep baru karena menurut saya Angular dan React adalah hal yang berbeda. Bagian yang cukup menantang di Angular yaitu konsep **OOP-nya, RX JS, dan NGRX (state management)**. Bagi yang sebelumnya pengguna typescript, hal itu cukup membantu dalam proses learning Angular. 
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.0.
+## Apa aja yang dipelajari?
+Yang dipelajari dalam code repository ini meliputi:
 
-## Development server
+- Project structure
+- Angular Pattern
+- Routing & Navigation
+- HTTP Service di Angular
+- Server Side Rendering
+- Observable (RX JS)
+- NGRX (global state management) 💪
+- Dan masih banyak lagi
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Running (Development)
+Jalankan `ng serve` untuk dev server. Buka `http://localhost:4200/` di browser kesayangan Anda. Aplikasi akan reload otomatis, jika ada perubahan di kode Anda.
 
-## Code scaffolding
+## Build (SPA)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Jalankan `ng build` untuk build project. Hasil build berada di dalam folder `dist/`. Pake parameter `--prod` untuk build production.
 
-## Build
+## Build (SSR)
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+Jalankan `npm run build:ssr` untuk build SSR. Tunggu beberapa saat, jika build selesai ketikkan perintah untuk running via local `npm run serve:ssr` dan buka `http://localhost:4000/`.
 
 ## Running unit tests
+Jalankan `ng test` untuk mengeksekusi unit tests via [Karma](https://karma-runner.github.io).
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+#### Disclaimer:
+> Ada beberapa issue yang saya buat diatas mohon dibaca, repo ini bertujuan untuk pembelajaran saja. Ada kesalahan kode? Typo? Monggo PR dipersilahkan, thanks for read.
