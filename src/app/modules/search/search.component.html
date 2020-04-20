@@ -1,12 +1,11 @@
 <app-container>
     <div class="search-block">
         <form>
-            <input [disabled]="loading" [placeholder]="loading ? 'Loading...': 'Enter your search'" type="search"
-                [(ngModel)]="search" name="search" autocomplete="off" />
+            <input placeholder="Enter your search" type="search" [(ngModel)]="search$" name="search" autocomplete="off" />
         </form>
 
         <ul>
-            <li *ngFor="let item of posts | filter: search : 'title' ">
+            <li *ngFor="let item of (posts$ | async) | filter: search$ : 'title' ">
                 <a [routerLink]="'/post/' + item.url | configurl">{{ item.title }}</a>
             </li>
         </ul>

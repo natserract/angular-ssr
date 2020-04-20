@@ -1,7 +1,12 @@
 
 import { Component, OnInit } from '@angular/core';
-import { Post, PostService } from '../../core';
-import { Router } from '@angular/router';
+
+import { Observable } from 'rxjs';
+import { Store, select } from '@ngrx/store';
+import { AppStateTypes, Post } from '../../store/types';
+import * as Selector from '../../store/selectors';
+import * as Dispatch from '../../store/actions';
+
 @Component({
     selector: 'app-post-lists',
     templateUrl: './post-list.component.html',
@@ -10,23 +15,26 @@ import { Router } from '@angular/router';
 
 export class PostListComponent implements OnInit {
     constructor(
-        private postsService: PostService,
-        private route: Router
-    ){}
+        private store: Store<AppStateTypes>,
+    ){
+        this.post$ = this.store.pipe(
+            select(Selector.GetAllPostsSelector)
+        );
 
-    posts: Post;
-    loading = false;
+        this.loading$ = this.store.pipe(
+            select(Selector.RequestPostSelector)
+        );
+
+        this.store.dispatch(new Dispatch.FetchSuccess({
+            posts: []
+        }));
+    }
+
+    post$: Observable<Post[]>;
+    loading$: Observable<boolean>;
 
     ngOnInit(){
-        this.loading = true;
-
-        return this.postsService.getAllPosts()
-            .subscribe(
-                data => {
-                    this.posts = data;
-                    this.loading = false;
-                },
-                err => console.log(err)
-            );
+        this.store.dispatch(new Dispatch.FetchRequest());
     }
+
 }

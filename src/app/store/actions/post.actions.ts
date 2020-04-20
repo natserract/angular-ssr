@@ -1,6 +1,7 @@
 
 import { Action } from '@ngrx/store';
-import * as Types from '../types';
+import { Post } from '../types';
+import { HttpErrorResponse } from '@angular/common/http';
 
 /*
  * For alternative you can use
@@ -21,7 +22,7 @@ export class FetchRequest implements Action {
 export class FetchSuccess implements Action {
     readonly type = SelectPostAction.FETCH_SUCCESS;
     constructor(public payload: {
-        posts: any
+        posts: Post[]
     }){}
 }
 

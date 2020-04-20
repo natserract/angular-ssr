@@ -29,4 +29,4 @@ export class SendPayloadAction implements Action {
     ){}
 }
 
-export type CountActions = IncrementAction | DecrementAction | SendPayloadAction    ;
+export type CountActions = IncrementAction | DecrementAction | SendPayloadAction;

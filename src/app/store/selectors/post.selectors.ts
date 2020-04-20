@@ -8,6 +8,11 @@ import * as Types from '../types';
 
 const SelectPostState = (State: Types.AppStateTypes) => State.postState;
 
+export const RequestPostSelector = createSelector(
+    SelectPostState,
+    (State: Types.PostStateTypes) => State.pending
+);
+
 export const GetAllPostsSelector = createSelector(
     SelectPostState,
     (State: Types.PostStateTypes) => State.posts

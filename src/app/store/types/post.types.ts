@@ -6,9 +6,9 @@
 */
 
 export interface PostStateTypes {
-    posts: Array<Post>;
+    posts: Post[];
     pending: boolean;
-    error: string | null;
+    error: string;
 }
 
 export interface Post {

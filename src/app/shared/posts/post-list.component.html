@@ -1,9 +1,11 @@
-<div class="black-loader" [hidden]="!loading">
-    <span>Loading...</span>
-</div>
+<ng-template #show>
+    <div class="black-loader">
+        <span>Loading...</span>
+    </div>
+</ng-template>
 
-<div class="grid-post">
-    <div *ngFor="let post of posts; index as postIndex; first as isFirst" class="grid-post--cell">
+<div class="grid-post" *ngIf="!(loading$ | async) else show">
+    <div *ngFor="let post of post$ | async; index as postIndex; first as isFirst" class="grid-post--cell">
         <article  class="post type-post category-the-loop">
             <a [routerLink]="'/post/' + post.url | configurl">
                 <div class="post-img-thumb" *ngFor="let imageItem of post.multimedia; index as i;">

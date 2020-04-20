@@ -15,7 +15,7 @@ export class PostService {
             .pipe(
                 map(
                     (data: { results: Post }) => data.results
-                )
+                ),
             );
     }
 

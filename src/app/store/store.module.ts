@@ -6,13 +6,14 @@ import { NgModule } from '@angular/core';
 import { RootReducer } from './reducers';
 import * as Effects from './effects';
 import { environment } from 'src/environments/environment';
+import { PostService } from '../core/services';
 
 @NgModule({
     imports: [
         StoreModule.forRoot(RootReducer),
-        // EffectsModule.forRoot([
-        //     Effects.PostEffects
-        // ]),
+        EffectsModule.forRoot([
+            Effects.PostEffects
+        ]),
         StoreDevtoolsModule.instrument({
             maxAge: 30,
             logOnly: environment.production

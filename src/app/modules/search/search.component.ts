@@ -1,7 +1,12 @@
 
 import { Component, OnInit } from '@angular/core';
 import { PostService } from '../../core';
+import { Observable } from 'rxjs';
+import { Store, select } from '@ngrx/store';
 import { Title } from '@angular/platform-browser';
+import { AppStateTypes, Post } from '../../store/types';
+import * as Selector from '../../store/selectors';
+import * as Dispatch from '../../store/actions';
 
 @Component({
     selector: 'app-search-filter',
@@ -11,26 +16,19 @@ import { Title } from '@angular/platform-browser';
 
 export class SearchComponent implements OnInit{
     constructor(
-        private post: PostService,
-        metaTitleService: Title
+        private metaTitleService: Title,
+        private store: Store<AppStateTypes>,
     ) {
-        metaTitleService.setTitle('Search | Black Management');
+        this.posts$ = this.store.pipe(
+            select(Selector.GetAllPostsSelector)
+        );
     }
 
-    search: string;
-    loading = false;
-    posts: any | null = null;
+    search$: string;
+    posts$: Observable<Post[]>;
 
     ngOnInit() {
-        this.loading = true;
-        return this.post.getAllPosts()
-            .subscribe(
-                data => {
-                    this.posts = data;
-                    this.loading = false;
-                },
-                err => console.error(err)
-            );
+        this.metaTitleService.setTitle('Search | Black Management');
     }
 
 }

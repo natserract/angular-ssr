@@ -19,10 +19,10 @@ import { AppStoreModule } from './store/store.module';
     AppRoutingModule,
     SharedModule,
     ModulesModule,
+    AppStoreModule,
     CoreModule,
     HttpClientModule,
     CommonModule,
-    AppStoreModule,
   ],
   declarations: [
     AppComponent,

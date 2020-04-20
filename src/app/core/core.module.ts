@@ -17,7 +17,6 @@ import { HttpErrorInterceptor } from './interceptors';
             multi: true
         }
     ],
-    declarations: []
 })
 
 export class CoreModule {}
