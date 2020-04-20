@@ -8,9 +8,9 @@ import { Action } from '@ngrx/store';
 */
 
 export enum SelectCountAction {
-    INCREMENT = '@@count increment',
-    DECREMENT = '@@count decrement',
-    COUNTSENDPAYLOAD = '@@count sendpayload'
+    INCREMENT = '@@COUNT INCREMENT',
+    DECREMENT = '@@COUNT DECREMENT',
+    COUNTSENDPAYLOAD = '@@COUNT SENDPAYLOAD'
 }
 
 export class IncrementAction implements Action {
