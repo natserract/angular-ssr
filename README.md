@@ -1,5 +1,5 @@
 # Ngoprek Angular 🔥
-Seorang **front-end dev** yang sedang bermigrasi dari **react ke angular**, berusaha memahami berbagai konsep jargonnya, yang cukup woah. Mungkin saya akan menyukai kedua tools ini (React, Angular). Didalam code repository ini, banyak belajar konsep-konsep baru karena menurut saya Angular dan React adalah hal yang berbeda. Bagian yang cukup menantang di Angular yaitu konsep **OOP-nya, RX JS, dan NGRX (state management)**. Bagi yang sebelumnya pengguna typescript, hal itu cukup membantu dalam proses learning Angular. 
+From **react to angular**. 
 
 ## Apa aja yang dipelajari?
 Yang dipelajari dalam code repository ini meliputi:
